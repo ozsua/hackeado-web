@@ -1,35 +1,79 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hackeado</title>
+    <title>Hacked</title>
     <style>
         body {
             margin: 0;
             padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: black;
+            background: url('https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExZWFoOW41YTVka240MWUxa3U1c2VzZmNnanM2eXJsa3JzMzdrbjIzYSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/8mpR6vIRIc3g0nD8ic/giphy.gif') no-repeat center center fixed;
+            background-size: cover;
             color: red;
-            font-family: Arial, sans-serif;
+            font-family: 'Courier New', Courier, monospace;
             text-align: center;
-            animation: glitch 1s infinite;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
         }
-        h1 {
-            font-size: 4rem;
-            text-transform: uppercase;
+
+        .hacked-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-        @keyframes glitch {
-            0% { text-shadow: 2px 2px #00ff00, -2px -2px #ff0000; }
-            50% { text-shadow: -2px -2px #00ff00, 2px 2px #ff0000; }
-            100% { text-shadow: 2px -2px #00ff00, -2px 2px #ff0000; }
+
+        .skull {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: url('https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExc2xjM3ZmODN4YWZxOGVmbGNtZm1mdjdiamFsaGlsYWthdGdhZDBzMyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/hQKb5BZ5BaySkyReYP/giphy.gif') no-repeat center;
+            background-size: contain;
+            animation: smooth-glitch 1.5s infinite;
+        }
+
+        @keyframes smooth-glitch {
+            0%, 100% {
+                filter: drop-shadow(2px 2px 5px red);
+                transform: scale(1);
+            }
+            50% {
+                filter: drop-shadow(3px 3px 8px red);
+                transform: scale(1.05);
+            }
+        }
+
+        .text {
+            position: absolute;
+            font-size: 48px;
+            animation: smooth-glitch-text 1.5s infinite;
+            z-index: 2; /* Hace que el texto esté delante de la imagen */
+        }
+
+        @keyframes smooth-glitch-text {
+            0%, 100% {
+                text-shadow: 2px 2px 5px red;
+                transform: translateY(0);
+            }
+            50% {
+                text-shadow: 3px 3px 8px red;
+                transform: translateY(-2px);
+            }
         }
     </style>
 </head>
 <body>
-    <h1>¡Has sido hackeado!</h1>
+    <div class="hacked-container">
+        <!-- Texto que está encima de la imagen -->
+        <div class="text">¡Has sido hackeado!</div>
+        <!-- Imagen de la calavera -->
+        <div class="skull"></div>
+    </div>
 </body>
 </html>
